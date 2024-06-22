@@ -3,15 +3,15 @@
 /**
  * main - Prints the numbers since 0 to 9
  *
- * Return: Always (Success)
+ *return: Success
  */
 int main(void)
 {
-	char p;
+	int a;
 
-	for (p = '0'; p <= '9'; p++)
+	for (a = '0'; a <= '9'; a++)
 	{
-		putchar(p);
+		putchar(a);
 	}
 
 	putchar('\n');
