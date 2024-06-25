@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 /**
  * main - empty function for the main
  *
@@ -7,13 +7,14 @@
 
 int main(void)
 {
-	printf("_");
-	printf("p");
-	printf("u");
-	printf("t");
-	printf("c");
-	printf("h");
-	printf("a");
-	printf("r");
+	putchar("_");
+	putchar("p");
+	putchar("u");
+	putchar("t");
+	putchar("c");
+	putchar("h");
+	putchar("a");
+	putchar("r");
+	putchar('\n');
 	return 0;
 }
