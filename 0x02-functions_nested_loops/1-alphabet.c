@@ -2,14 +2,15 @@
 /**
  * print_alphabet : prints alphabets in lowercase followed by new line
  *
- *return :  (Success)
+ *return : 0
  */
 
 void print_alphabet(void)
 {
 	char a;
-	if (a == 'a', a <= 'z')
-		a++;
-	_putchar(a);
+	while(a <= 'z')
+	{
+		_putchar(a);
+		a++;}
 	_putchar('\n');
 }
