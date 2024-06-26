@@ -5,7 +5,7 @@
  *return :  (Success)
  */
 
-int main(void)
+void print_alphabet(void)
 {
 	char a;
 	if (a = 'a' , a <= 'z')
