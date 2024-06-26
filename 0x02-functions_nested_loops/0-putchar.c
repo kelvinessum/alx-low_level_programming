@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * main - empty function for the main
+ * main - prints _putchar
  *
- *return - 0;
+ *return - Always (Success)
  */
 
 int main(void)
@@ -16,5 +16,5 @@ int main(void)
 	_putchar('a');
 	_putchar('r');
 	_putchar('\n');
-	return 0;
+	return (0);
 }
