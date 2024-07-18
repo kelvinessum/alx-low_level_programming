@@ -1,14 +1,12 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-
 /**
  * main - Prints the multiplication of two arguments numbers followed by new line
  * @argc: argument count
  * @argv: argument vector
- *
- * Return: Always zero (Success)
+ * Return: returns 0
  */
+
 int main(int argc, char *argv[])
 {
 	int i, j, mul;
