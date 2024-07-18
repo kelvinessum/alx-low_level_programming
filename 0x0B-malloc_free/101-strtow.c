@@ -1,32 +1,86 @@
 #include "main.h"
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 /**
- *  * strtow - concatenates arguments.
- *   * @str: String to be splitted.
+ *count_words - counts the number of words in a string
+ * @str: the input string
+ *
+ * Return: the number of words
+ */
+int count_words(char *str)
+{
+	    int in_word = 0, count = 0;
+
+	        while (*str)
+			    {
+				            if (isspace(*str))
+						            {
+								                in_word = 0;
+										        }
+					            else if (!in_word)
+							            {
+									                in_word = 1;
+											            count++;
+												            }
+						            str++;
+							        }
+		    return count;
+}
+
+/**
+ *  * strtow - splits a string into words
+ *   * @str: the input string
  *    *
- *     * Return: a pointer to array of String.
+ *     * Return: pointer to an array of strings (words) or NULL if failure
  *      */
 char **strtow(char *str)
 {
-		char *array = NULL;
-			unsigned int i = 0, j = 0, k;
+	    char **words;
+	        int i, j, k, len, word_count;
 
-				if (strncmp(str, "", 1) || str == NULL)
-							return (NULL);
-					array = malloc((i + j + 1) * sizeof(char));
-						if (array == NULL)
-									return (NULL);
-							for (k = 0; k < i; k++)
-										array[k] = str[k];
-								i = k;
-									for (k = 0; k < j; k++)
-											{
-														array[i] = str[k];
-																i++;
-																	}
-										array[i] = '\0';
-											return (NULL);
+		    if (str == NULL || *str == '\0')
+			            return NULL;
+
+		        word_count = count_words(str);
+			    if (word_count == 0)
+				            return NULL;
+
+			        words = malloc((word_count + 1) * sizeof(char *));
+				    if (words == NULL)
+					            return NULL;
+
+				        i = 0;
+					    while (*str)
+						        {
+								        while (isspace(*str))
+										            str++;
+
+									        len = 0;
+										        while (str[len] && !isspace(str[len]))
+												            len++;
+
+											        if (len > 0)
+													        {
+															            words[i] = malloc((len + 1) * sizeof(char));
+																                if (words[i] == NULL)
+																			            {
+																					                    for (j = 0; j < i; j++)
+																								                        free(words[j]);
+																							                    free(words);
+																									                    return NULL;
+																											                }
+
+																		            for (k = 0; k < len; k++)
+																				                    words[i][k] = str[k];
+																			                words[i][len] = '\0';
+																					            i++;
+																						                str += len;
+																								        }
+												    }
+					        words[i] = NULL;
+
+						    return words;
 }
