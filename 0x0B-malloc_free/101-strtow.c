@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+
 /**
  *  * strtow - concatenates arguments.
  *   * @str: String to be splitted.
