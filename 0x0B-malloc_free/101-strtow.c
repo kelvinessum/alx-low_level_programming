@@ -13,7 +13,8 @@
 char **strtow(char *str)
 {
 	char **split;
-	int i, j = 0, temp = 0, size = 0, words = num_words(str);
+	long unsigned int i, temp = 0, size = 0, words = strlen(str);
+	int j;
 
 	if (words == 0)
 		return (NULL);
@@ -40,7 +41,7 @@ char **strtow(char *str)
 				}
 				else
 				{
-					while (j-- >= 0)
+					while (j >= 0)
 						free(split[j]);
 					free(split);
 					return (NULL);
@@ -63,9 +64,9 @@ char **strtow(char *str)
  */
 int num_words(char *str)
 {
-	int i = 0, words = 0;
+	long unsigned int i = 0, words = 0;
 
-	while (i <= len(str))
+	while (i <= strlen(str))
 	{
 		if ((str[i] != ' ') && (str[i] != '\0'))
 		{
